@@ -1,0 +1,21 @@
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Operating system
+.DS_Store
+
+# Local database
+backend/src/database/stockflow.db
+
+# Local test databases
+backend/src/database/test.db

@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockFlow | Gestão de Estoque</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>StockFlow</h1>
+            <p>Inventory Management System</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="dashboard">
+            <h2>Visão geral do estoque</h2>
+            <p>Gerencie seus produtos em um só lugar.</p>
+
+            <div class="stats">
+                <article class="stat-card">
+                    <h3>Total de produtos</h3>
+                    <p id="totalProducts">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Unidades em estoque</h3>
+                    <p id="totalUnits">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Estoque baixo</h3>
+                    <p id="lowStockProducts">0</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="product-section">
+            <h2>Cadastrar produto</h2>
+
+            <form id="productForm">
+                <div class="form-group">
+                    <label for="productCode">Código</label>
+                    <input
+                        type="text"
+                        id="productCode"
+                        name="code"
+                        placeholder="Ex.: PROD-001"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="productName">Nome do produto</label>
+                    <input
+                        type="text"
+                        id="productName"
+                        name="name"
+                        placeholder="Ex.: Monitor"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="productQuantity">Quantidade</label>
+                    <input
+                        type="number"
+                        id="productQuantity"
+                        name="quantity"
+                        min="0"
+                        step="1"
+                        value="0"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="minimumStock">Estoque mínimo</label>
+                    <input
+                        type="number"
+                        id="minimumStock"
+                        name="minimumStock"
+                        min="0"
+                        step="1"
+                        value="0"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Cadastrar produto</button>
+            </form>
+
+            <p id="formMessage" role="status"></p>
+        </section>
+
+        <section class="product-section">
+            <h2>Produtos cadastrados</h2>
+            <div class="search-section"> 
+                <label for="searchProductId">Buscar Produto por ID</label>
+            <div class="search-controls">
+                <input 
+                type="number"
+                id="searchProductId"
+                min="1"
+                step="1"
+                placeholder="Digite o ID do produto"
+                >
+                <button type="button" id="searchProductButton">
+                    Buscar
+                </button>
+
+                <button type="button" id="showAllProductsButton">
+                  Mostrar todos
+                </button>
+
+            </div>
+            
+            <p id="searchMessage" role="status"></p>
+
+            </div>
+            
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Código</th>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Estoque mínimo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <tr>
+                            <td colspan="5">Carregando produtos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
