@@ -15,6 +15,4 @@ const createProductsTable = `
 
 db.exec(createProductsTable);
 
-console.log("Products table created successfully!");
-
-db.close();
+console.log("Products table initialized successfully!");
